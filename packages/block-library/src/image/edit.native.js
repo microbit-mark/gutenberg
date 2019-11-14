@@ -151,6 +151,7 @@ export class ImageEdit extends React.Component {
 		this.setState( {
 			isCaptionSelected: false,
 		} );
+		
 	}
 
 	updateMediaProgress( payload ) {
