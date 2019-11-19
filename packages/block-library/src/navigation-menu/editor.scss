@@ -64,10 +64,31 @@
 	padding: $grid-size-large;
 }
 
-.wp-block-navigation-menu-item {
+/*
+ * Adjust Navigation Item with Menu.
+ */
+.wp-block-navigation-menu .wp-block-navigation-link {
+	margin-right: $grid-size;
 	margin-left: $grid-size;
-	.wp-block-navigation-menu-item__link {
-		margin-left: $grid-size-large;
+
+	.block-editor-block-list__layout {
+		display: block;
+		margin: $grid-size;
+	}
+
+	// Provide a base menu item margin.
+	// This should be the same inside the field,
+	// and the edit container should compensate.
+	// This is to make sure the edit and view are the same.
+	padding: 0 $grid-size;
+
+	// Only display inner blocks when the block is being edited.
+	.block-editor-inner-blocks {
+		display: none;
+	}
+
+	&.is-editing .block-editor-inner-blocks {
+		display: block;
 	}
 }
 
@@ -122,9 +143,12 @@ $colors-selector-size: 22px;
 		line-height: ($colors-selector-size - 2);
 		padding: 2px;
 
-		&:not(.has-background-color) {
-			background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.08) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.08) 75%, transparent 75%, transparent 100%);
-			background-size: 12px 12px;
+		// Styling icon color.
+		&.has-text-color {
+			> svg,
+			> svg path {
+				color: inherit;
+			}
 		}
 	}
 }
